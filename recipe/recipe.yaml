@@ -1,11 +1,8 @@
-schema_version: 1
-
 context:
-  name: xplr
   version: 0.21.8
 
 package:
-  name: ${{ name|lower }}
+  name: xplr
   version: ${{ version }}
 
 source:
@@ -40,4 +37,3 @@ about:
 extra:
   recipe-maintainers:
     - danielnachun
-
