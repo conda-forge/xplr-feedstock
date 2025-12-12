@@ -11,7 +11,6 @@ source:
 
 build:
   number: 1
-  skip: win or ppc64le
 
 requirements:
   build:
@@ -19,7 +18,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - cargo-bundle-licenses
-    - make
+  host:
+    - luajit-openresty
 
 tests:
   - script:

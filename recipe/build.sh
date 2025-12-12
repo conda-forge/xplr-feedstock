@@ -4,20 +4,14 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 export CARGO_PROFILE_RELEASE_LTO=fat
+export LUA_LIB=${PREFIX}/lib
+export LUA_LIB_NAME=luajit
+export LUA_LINK=dylib
 
-if [[ ${target_platform} == "osx-arm64" ]]; then
-    export CC_aarch64_apple_darwin=${CC}
-    export CC=${CC_FOR_BUILD}
-fi
-if [[ ${target_platform} == "linux-aarch64" ]]; then
-    export CC_aarch64_unknown_linux_gnu=${CC}
-    export CC=${CC_FOR_BUILD}
-fi
+# build statically linked binary with Rust
+cargo install --no-default-features --bins --no-track --locked --root ${PREFIX} --path .
 
 # check licenses
 cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY.yml
-
-# build statically linked binary with Rust
-cargo install --bins --no-track --locked --root ${PREFIX} --path .
