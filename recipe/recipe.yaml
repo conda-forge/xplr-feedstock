@@ -19,7 +19,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - cargo-bundle-licenses
-    - make
+  host:
+    - luajit-openresty
 
 tests:
   - script:
