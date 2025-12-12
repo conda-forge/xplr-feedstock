@@ -9,6 +9,10 @@ if [[ ${target_platform} == "osx-arm64" ]]; then
     export CC_aarch64_apple_darwin=${CC}
     export CC=${CC_FOR_BUILD}
 fi
+if [[ ${target_platform} == "linux-aarch64" ]]; then
+    export CC_aarch64_unknown_linux_gnu=${CC}
+    export CC=${CC_FOR_BUILD}
+fi
 
 # check licenses
 cargo-bundle-licenses \
