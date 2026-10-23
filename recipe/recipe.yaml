@@ -1,5 +1,5 @@
 context:
-  version: "1.1.0"
+  version: "1.2.1"
 
 package:
   name: xplr
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/sayanarijit/xplr/archive/v${{ version }}.tar.gz
-  sha256: 7948683c546fdf374f6bec7855726cf4e3f1bc4abf1c2a292cbdfa6ff16f6143
+  sha256: f4a6c8c550d240813fbf5683de98f6f7a519e549d6370a3fc777a93a88396f66
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
